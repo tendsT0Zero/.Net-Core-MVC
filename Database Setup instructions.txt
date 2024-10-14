@@ -1,0 +1,33 @@
+1. Click on Dependencies
+	then click NuGet packages
+	Install the packages:
+	1. Microsoft.EntityFrameworkCore.SqlServer
+	2. Microsoft.EntityFrameworkCore.Tools
+2. Create ApplicationDBContextClass
+	#Create NewFolder named 'Data'
+	#Create ApplicationDbContext.cs file 
+	#Inherit the class from DbContext
+	#Create a Constructor of that class and pass 
+	the DbContextOptions of type <ApplicationDbContext> and named 
+	as options and also pass to the baseclass using ':base()'
+3. Create a Folder inside the Model and name it Entities
+	# Create a class of Entity
+	# Write the properties
+	# Go to the ApplicationDbContext class and create 'DbSet<T>'
+	  properties.
+4. Inject the DbContext inside the programfile via going to the Startup.cs/
+	Program.cs file.
+	#Syntax:
+	builder.Services.AddDbContext<T>(options=> options.UseSqlServer(builder.Configuration.GetConnectionString('ConnectionString_Name')));
+	# Now Create the Connection_string inside the appsetting.json file
+	"ConnectionStrings":{
+
+		"ConnectionString_Name":".;Database=Database_Name;Trusted_Connection=True;TrustServerCertificate=True"
+
+	}
+5. Goto Package Manager Console
+	# Create a Migration and run it
+	cmd:
+		Add-Migration "Initial Migration"
+	cmd:
+		Update -Database
