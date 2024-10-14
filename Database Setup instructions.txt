@@ -20,11 +20,9 @@
 	#Syntax:
 	builder.Services.AddDbContext<T>(options=> options.UseSqlServer(builder.Configuration.GetConnectionString('ConnectionString_Name')));
 	# Now Create the Connection_string inside the appsetting.json file
-	"ConnectionStrings":{
-
-		"ConnectionString_Name":".;Database=Database_Name;Trusted_Connection=True;TrustServerCertificate=True"
-
-	}
+	  "ConnectionStrings": {
+	    "StudentPortal": "Server=localhost;Database=StudentPortalDb;Trusted_Connection=True;TrustServerCertificate=True"
+	  }
 5. Goto Package Manager Console
 	# Create a Migration and run it
 	cmd:
